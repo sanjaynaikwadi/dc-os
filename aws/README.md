@@ -43,10 +43,21 @@ module "dcos" {
   private_agents_instance_type = "t2.medium"
   public_agents_instance_type = "t2.medium"
 
+# If you want to add an additional volume to private instance use the below block
+  private_agents_extra_volumes = [
+    {
+      size        = "50"
+      type        = "gp2"
+      device_name = "/dev/xvdz"
+    },
+  ]
+
+# Default AWS provider
   providers = {
     aws = "aws"
   }
 
+# DC OS settings 
   dcos_variant              = "ee"    # If you want to install Enterprise version
   dcos_license_key_contents = "${file("./license.txt")}" # This is your license file and required when your installing the EE version
   # dcos_variant = "open"   # If you want to install opensource version
