@@ -100,3 +100,8 @@ terraform apply
 
 ### Your done now, you will get the output address where you can login with mention login details
 
+### Tearing down the setup
+```bash
+terraform destroy
+```
+
