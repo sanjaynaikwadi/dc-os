@@ -34,7 +34,7 @@ module "dcos" {
   num_private_agents = "3"
   num_public_agents  = "1"
 
-  dcos_version = "1.12.0"
+  dcos_version = "1.12.3"
 
 # Choose your instance type
   dcos_instance_os    = "centos_7.5"
@@ -65,6 +65,7 @@ module "dcos" {
   # Password is admin, create your password hash and update it below 
   dcos_superuser_password_hash = "$6$rounds=656000$8CXbMqwuglDt3Yai$ZkLEj8zS.GmPGWt.dhwAv0.XsjYXwVHuS9aHh3DMcfGaz45OpGxC5oQPXUUpFLMkqlXCfhXMloIzE0Xh8VwHJ."
   dcos_install_mode = "${var.dcos_install_mode}"
+  dcos_security = "permissive"  # Default mode is permissive if you want to enable security feature, change to "strict"
 }
 
 variable "dcos_install_mode" {
